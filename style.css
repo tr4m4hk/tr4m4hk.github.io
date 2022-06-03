@@ -1,0 +1,916 @@
+/* Pen by ArcSinDesign.com - Follow https://codepen.io/BoiseDigital/ */
+:root {
+  --color-text: #fff;
+  --color-bg: #000;
+  --color-link: #f9d77e;
+  --color-link-hover: #fff;
+  --color-info: #efc453;
+  --glitch-width: 100vw;
+  --glitch-height: 100vh;
+  --gap-horizontal: 10px;
+  --gap-vertical: 5px;
+  --time-anim: 2s;
+  --delay-anim: 0s;
+  --blend-mode-1: multiply;
+  --blend-mode-2: saturation;
+  --blend-mode-3: luminosity;
+  --blend-mode-4: hue;
+  --blend-mode-5: color-burn;
+  --blend-color-1: transparent;
+  --blend-color-2: transparent;
+  --blend-color-3: transparent;
+  --blend-color-4: transparent;
+  --blend-color-5: #af4949;
+  --blend-color-6: #49af49;
+  --blend-color-7: #af49af;
+  --blend-color-8: #4949af;
+  --blend-color-9: #afaf49;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+}
+
+header {
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  z-index: 10000000;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#959595+0,0d0d0d+46,010101+50,0a0a0a+53,383838+86,383838+92,1b1b1b+100&amp;0+0,1+100 */
+  background: -moz-radial-gradient(center, ellipse cover, rgba(149, 149, 149, 0) 0%, rgba(13, 13, 13, 0.46) 46%, rgba(1, 1, 1, 0.5) 50%, rgba(10, 10, 10, 0.53) 53%, rgba(56, 56, 56, 0.86) 86%, rgba(56, 56, 56, 0.92) 92%, #1b1b1b 100%);
+  /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(149, 149, 149, 0) 0%, rgba(13, 13, 13, 0.46) 46%, rgba(1, 1, 1, 0.5) 50%, rgba(10, 10, 10, 0.53) 53%, rgba(56, 56, 56, 0.86) 86%, rgba(56, 56, 56, 0.92) 92%, #1b1b1b 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, rgba(149, 149, 149, 0) 0%, rgba(13, 13, 13, 0.46) 46%, rgba(1, 1, 1, 0.5) 50%, rgba(10, 10, 10, 0.53) 53%, rgba(56, 56, 56, 0.86) 86%, rgba(56, 56, 56, 0.92) 92%, #1b1b1b 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#00959595", endColorstr="#1b1b1b",GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
+  height: 75px;
+  line-height: 75px;
+  margin: 0;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -ie-transition: all 0.1s linear;
+  -khtml-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+}
+
+#logo {
+  display: inline-block;
+  height: 75px;
+  width: auto;
+  float: left;
+  -webkit-transition: all 0.3s ease-out;
+}
+
+.header-detached {
+  height: 50px;
+  line-height: 50px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#959595+0,0d0d0d+46,010101+50,0a0a0a+53,383838+86,383838+92,1b1b1b+100&amp;0.5+0,1+100 */
+  background: -moz-radial-gradient(center, ellipse cover, rgba(149, 149, 149, 0.5) 0%, rgba(13, 13, 13, 0.73) 46%, rgba(1, 1, 1, 0.75) 50%, rgba(10, 10, 10, 0.76) 53%, rgba(56, 56, 56, 0.93) 86%, rgba(56, 56, 56, 0.96) 92%, #1b1b1b 100%);
+  /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(149, 149, 149, 0.5) 0%, rgba(13, 13, 13, 0.73) 46%, rgba(1, 1, 1, 0.75) 50%, rgba(10, 10, 10, 0.76) 53%, rgba(56, 56, 56, 0.93) 86%, rgba(56, 56, 56, 0.96) 92%, #1b1b1b 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, rgba(149, 149, 149, 0.5) 0%, rgba(13, 13, 13, 0.73) 46%, rgba(1, 1, 1, 0.75) 50%, rgba(10, 10, 10, 0.76) 53%, rgba(56, 56, 56, 0.93) 86%, rgba(56, 56, 56, 0.96) 92%, #1b1b1b 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#80959595", endColorstr="#1b1b1b",GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
+}
+.header-detached #logo {
+  height: 50px;
+}
+
+header ul {
+  margin: 0;
+  text-align: center;
+  display: inline-block;
+  float: right;
+}
+
+header li {
+  display: inline-block;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-family: "Press Start 2P", consolas, sans-serif;
+  font-weight: bolder;
+  color: #23d96b;
+  font-size: 1em;
+}
+
+.pi:hover {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7db9e8+0,17a913+100&amp;0+0,1+100 */
+  background: -moz-radial-gradient(center, ellipse cover, rgba(125, 185, 232, 0) 0%, #17a913 100%);
+  /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(125, 185, 232, 0) 0%, #17a913 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, rgba(125, 185, 232, 0) 0%, #17a913 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#007db9e8", endColorstr="#17a913",GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
+  color: #f5f5f5;
+  animation: rgbText 1s steps(9) 0s infinite alternate;
+}
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.05); }
+
+#autogrid {
+  position: relative;
+  font-size: 0;
+}
+#autogrid:hover .glitch__item {
+  opacity: 1;
+  -webkit-filter: grayscale(100%) brightness(0.42);
+  background-position: center;
+}
+
+.videoThumb {
+  width: 25%;
+  display: inline-block;
+}
+
+.fadingTitleContainer {
+  overflow: hidden;
+  width: 100%;
+  background-color: #060600;
+  /*background-image:url('');*/
+  background-attachment: fixed;
+  background-position: center center;
+  height: 700px;
+  text-align: center;
+  position: relative;
+}
+.fadingTitleContainer:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: black;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0) 3%, black 95%);
+  pointer-events: none;
+  z-index: 99;
+}
+
+.fadingTitleContainer h1 {
+  color: #fff;
+  font-family: "Press Start 2P", consolas, sans-serif;
+  font-size: 48px;
+  line-height: 20px;
+  font-weight: 100;
+}
+
+.fadingTitleContainer h1:first-child {
+  font-size: 38px;
+}
+
+.fadingTitleContainer h2 {
+  letter-spacing: 13px;
+  font-family: arial;
+  font-size: 20px;
+  font-weight: 100;
+  color: #fff;
+}
+
+#titleFade {
+  position: fixed;
+  text-align: center;
+  top: 60px;
+  left: 0;
+  right: 0;
+}
+
+.bodyContent {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.bodyContent p {
+  margin-left: 20%;
+  margin-right: 20%;
+  color: #f5f5f5;
+  font-family: "Press Start 2P", consolas, sans-serif;
+  font-weight: 100;
+  color: #23d96b;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  text-align: left;
+  line-height: 2.5em;
+}
+
+.bodyContent h1 {
+  margin-left: 20%;
+  margin-right: 20%;
+  color: #f5f5f5;
+  font-family: "Press Start 2P", consolas, sans-serif;
+  font-weight: 100;
+  color: #23d96b;
+  text-shadow: 0px 0px 5px #23d96b;
+}
+
+.bodyContent h2 {
+  margin-left: 20%;
+  margin-right: 20%;
+  padding-left: 1%;
+  padding-bottom: 25px;
+  color: #f5f5f5;
+  font-family: "Press Start 2P", consolas, sans-serif;
+  font-weight: 100;
+  color: #23d96b;
+  text-shadow: 0px 0px 5px #23d96b;
+  border-bottom: 1px dotted #23d96b;
+  text-align: left;
+}
+
+.iamtheend {
+  font-size: 54px !important;
+  color: #23d96b !important;
+  margin-top: 100px;
+  animation-name: crt-glitch;
+  animation-duration: 10s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+footer {
+  width: 100%;
+  background-color: #000;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  text-align: center;
+}
+footer#footer-logo {
+  background-image: url("http://dizin.x10.bz/images/acidwolf.png");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 846px 180px;
+  background-attachment: fixed;
+}
+
+iframe {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 1920px;
+  height: 1080px;
+  top: -100px;
+}
+
+.videoDisplay {
+  margin-top: 50px;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+  height: 261px;
+  background-color: #000;
+  font-size: 18px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  background-position: center center;
+  background-size: cover;
+  z-index: 0;
+  text-align: center;
+}
+
+.glitch:hover .meta {
+  display: block;
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-position: 0 0;
+  color: #23d96b;
+  font-size: 2em;
+  /*background-color:rgba(35,169,19,0.8);*/
+  animation-name: scrollthatshit;
+  animation-duration: 10s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation: rgbText 1s steps(9) 0s infinite alternate;
+}
+
+.glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7db9e8+0,17a913+100&amp;0+0,1+100 */
+  background: -moz-radial-gradient(center, ellipse cover, rgba(125, 185, 232, 0) 0%, #17a913 100%);
+  /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(125, 185, 232, 0) 0%, #17a913 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, rgba(125, 185, 232, 0) 0%, #17a913 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#007db9e8", endColorstr="#17a913",GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
+}
+
+.meta {
+  display: block;
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  font-size: 2em;
+  opacity: 1;
+  color: rgba(255, 255, 255, 0);
+  background-position: 0 0;
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -ie-transition: all 1s linear;
+  -khtml-transition: all 1s linear;
+  -ms-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  font-family: "Press Start 2P", consolas, sans-serif;
+}
+.meta:before {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-image: url("http://dizin.x10.bz/images/crtlines.png");
+}
+.meta h4 {
+  position: relative;
+  display: block;
+  text-align: center;
+  font-size: 24px;
+  z-index: 99;
+  text-transform: uppercase;
+  font-family: "Press Start 2P", consolas, sans-serif;
+  margin-top: 110px;
+  opacity: 0;
+  animation: rgbText 1s steps(9) 0s infinite alternate;
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -ie-transition: all 1s linear;
+  -khtml-transition: all 1s linear;
+  -ms-transition: all 1s linear;
+  -o-transition: all 1s linear;
+}
+.meta:hover h4 {
+  opacity: 1;
+}
+#front{
+  position: relative;
+  z-index: 1009000;
+
+}
+#scanlines {
+  pointer-events: none;
+  background-image: url("http://dizin.x10.bz/images/crtlines.png");
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 0;
+  opacity: 0.33;
+  animation-name: scrollthatshit;
+  animation-duration: 10s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes scrollthatshit {
+  0% {
+    left: 0px;
+    top: 0px;
+    background-position: 0 0%;
+    filter: brightness(100%) contrast(100%) blur(0px) hue-rotate(0deg);
+    background-blend-mode: saturation;
+  }
+  25% {
+    filter: brightness(50%) contrast(150%);
+    background-blend-mode: saturation;
+  }
+  75% {
+    filter: brightness(100%) contrast(150%);
+    background-blend-mode: saturation;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+    background-position: 0 500%;
+    filter: brightness(50%) contrast(100%) blur(0px) hue-rotate(359deg);
+    background-blend-mode: saturation;
+  }
+}
+@keyframes crt-glitch {
+  0% {
+    left: 0px;
+    top: 0px;
+    background-position: 0 0%;
+    filter: brightness(75%) contrast(100%) blur(0px) drop-shadow(0px 0px 50px green) hue-rotate(0deg);
+    margin-left: 5px;
+    margin-top: 105px;
+    background-blend-mode: difference;
+    perspective: 100px;
+    transform: rotateX(-15deg) rotateY(15deg);
+  }
+  25% {
+    filter: brightness(75%) contrast(100%) blur(0px) drop-shadow(0px 0px 50px green) hue-rotate(90deg);
+    margin-left: 15px;
+    margin-top: 115px;
+    filter: brightness(150%) contrast(150%);
+    background-blend-mode: difference;
+    transform: rotateX(-25deg) rotateY(-15deg);
+  }
+  75% {
+    filter: brightness(75%) contrast(100%) blur(0px) drop-shadow(0px 0px 50px green) hue-rotate(180deg);
+    margin-left: 5px;
+    margin-top: 105px;
+    filter: brightness(150%) contrast(150%);
+    background-blend-mode: difference;
+    transform: rotateX(15deg) rotateY(-15deg);
+  }
+  100% {
+    margin-left: 5px;
+    margin-top: 105px;
+    left: 0px;
+    top: 0px;
+    background-position: 0 500%;
+    filter: brightness(75%) contrast(100%) blur(0px) hue-rotate(359deg);
+    background-blend-mode: difference;
+    perspective: 5px;
+    transform: rotateX(-15deg) rotateY(15deg);
+  }
+}
+/* Image Glitch Hover test */
+.glitch {
+  /*width: 100vw;*/
+  /*height: 100vh;*/
+  position: relative;
+  /*display: flex;*/
+  display: inline-block;
+  width: 25%;
+  height: 250px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.glitch .glitch__item {
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-size: 100% 100%;
+  position: absolute;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -ie-transition: all 0.1s linear;
+  -khtml-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+.glitch:hover .glitch__item {
+  background-size: 150% 150%;
+  opacity: 1 !important;
+  -webkit-filter: grayscale(0%) !important;
+}
+.glitch:hover .glitch__item:nth-child(n+2) {
+  opacity: 0;
+  animation-duration: var(--time-anim);
+  animation-delay: var(--delay-anim);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.glitch:hover .glitch__item:nth-child(2) {
+  background-color: var(--blend-color-2);
+  background-blend-mode: var(--blend-mode-2);
+  animation-name: glitch-anim-2;
+}
+.glitch:hover .glitch__item:nth-child(2) {
+  background-color: var(--blend-color-3);
+  background-blend-mode: var(--blend-mode-3);
+  animation-name: glitch-anim-3;
+}
+.glitch:hover .glitch__item:nth-child(4) {
+  background-color: var(--blend-color-4);
+  background-blend-mode: var(--blend-mode-4);
+  animation-name: glitch-anim-4;
+}
+.glitch:hover .glitch__item:nth-child(5) {
+  background-color: var(--blend-color-5);
+  background-blend-mode: var(--blend-mode-5);
+  animation-name: glitch-anim-flash;
+}
+@keyframes glitch-anim-flash {
+  0%, 5% {
+    opacity: 0.2;
+    transform: translate3d(var(--glitch-horizontal), var(--glitch-height), 0);
+  }
+  5.5%, 100% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.glitch:hover .glitch__title {
+  font-family: "Press Start 2P", consolas, sans-serif;
+  font-size: 24px;
+  color: transparent;
+  position: relative;
+  text-transform: uppercase;
+}
+.glitch:hover .glitch__title:before, .glitch:hover .glitch__title:after {
+  content: attr(title);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Press Start 2P", consolas, sans-serif;
+  font-size: 24px;
+}
+.glitch:hover .glitch__title:before {
+  left: 2px;
+  text-shadow: -1px 0 #23d96b;
+  clip: rect(94px, 50px, 90px, 0);
+  animation: glitch-anim 2s linear infinite alternate-reverse;
+}
+.glitch:hover .glitch__title:after {
+  left: -2px;
+  text-shadow: -1px 0 #fff;
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim 2s 1s linear infinite alternate-reverse;
+}
+@keyframes glitch-anim {
+  0% {
+    clip: rect(1px, 99999px, 10px, 0);
+  }
+  2.5% {
+    clip: rect(1px, 99999px, 47px, 0);
+  }
+  5% {
+    clip: rect(3px, 99999px, 46px, 0);
+  }
+  7.5% {
+    clip: rect(1px, 99999px, 77px, 0);
+  }
+  10% {
+    clip: rect(2px, 99999px, 133px, 0);
+  }
+  12.5% {
+    clip: rect(2px, 99999px, 46px, 0);
+  }
+  15% {
+    clip: rect(3px, 99999px, 115px, 0);
+  }
+  17.5% {
+    clip: rect(1px, 99999px, 25px, 0);
+  }
+  20% {
+    clip: rect(2px, 99999px, 3px, 0);
+  }
+  22.5% {
+    clip: rect(3px, 99999px, 117px, 0);
+  }
+  25% {
+    clip: rect(5px, 99999px, 134px, 0);
+  }
+  27.5% {
+    clip: rect(5px, 99999px, 121px, 0);
+  }
+  30% {
+    clip: rect(3px, 99999px, 77px, 0);
+  }
+  32.5% {
+    clip: rect(1px, 99999px, 22px, 0);
+  }
+  35% {
+    clip: rect(5px, 99999px, 42px, 0);
+  }
+  37.5% {
+    clip: rect(1px, 99999px, 113px, 0);
+  }
+  40% {
+    clip: rect(4px, 99999px, 94px, 0);
+  }
+  42.5% {
+    clip: rect(1px, 99999px, 117px, 0);
+  }
+  45% {
+    clip: rect(1px, 99999px, 115px, 0);
+  }
+  47.5% {
+    clip: rect(3px, 99999px, 96px, 0);
+  }
+  50% {
+    clip: rect(5px, 99999px, 41px, 0);
+  }
+  52.5% {
+    clip: rect(3px, 99999px, 89px, 0);
+  }
+  55% {
+    clip: rect(2px, 99999px, 42px, 0);
+  }
+  57.5% {
+    clip: rect(5px, 99999px, 115px, 0);
+  }
+  60% {
+    clip: rect(3px, 99999px, 122px, 0);
+  }
+  62.5% {
+    clip: rect(5px, 99999px, 13px, 0);
+  }
+  65% {
+    clip: rect(2px, 99999px, 13px, 0);
+  }
+  67.5% {
+    clip: rect(3px, 99999px, 151px, 0);
+  }
+  70% {
+    clip: rect(1px, 99999px, 124px, 0);
+  }
+  72.5% {
+    clip: rect(1px, 99999px, 125px, 0);
+  }
+  75% {
+    clip: rect(3px, 99999px, 76px, 0);
+  }
+  77.5% {
+    clip: rect(2px, 99999px, 23px, 0);
+  }
+  80% {
+    clip: rect(4px, 99999px, 51px, 0);
+  }
+  82.5% {
+    clip: rect(2px, 99999px, 9px, 0);
+  }
+  85% {
+    clip: rect(2px, 99999px, 160px, 0);
+  }
+  87.5% {
+    clip: rect(4px, 99999px, 161px, 0);
+  }
+  90% {
+    clip: rect(4px, 99999px, 128px, 0);
+  }
+  92.5% {
+    clip: rect(3px, 99999px, 17px, 0);
+  }
+  95% {
+    clip: rect(3px, 99999px, 137px, 0);
+  }
+  97.5% {
+    clip: rect(5px, 99999px, 61px, 0);
+  }
+  100% {
+    clip: rect(2px, 99999px, 66px, 0);
+  }
+}
+
+@keyframes glitch-anim-2 {
+  0% {
+    opacity: 1;
+    transform: translate3d(var(--gap-horizontal), 0, 0);
+    -webkit-clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+    clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+  }
+  2% {
+    -webkit-clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+    clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+  }
+  4% {
+    -webkit-clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+    clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+  }
+  6% {
+    -webkit-clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
+    clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
+  }
+  8% {
+    -webkit-clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+    clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+  }
+  10% {
+    -webkit-clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+    clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+  }
+  12% {
+    -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+    clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+  }
+  14% {
+    -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+    clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+  }
+  16% {
+    -webkit-clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+    clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+  }
+  18% {
+    -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+    clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+  }
+  20% {
+    -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+    clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+  }
+  21.9% {
+    opacity: 1;
+    transform: translate3d(var(--gap-horizontal), 0, 0);
+  }
+  22%, 100% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+    -webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+  }
+}
+@keyframes glitch-anim-3 {
+  0% {
+    opacity: 1;
+    transform: translate3d(calc(-1 * var(--gap-horizontal)), 0, 0);
+    -webkit-clip-path: polygon(0 25%, 100% 25%, 100% 30%, 0 30%);
+    clip-path: polygon(0 25%, 100% 25%, 100% 30%, 0 30%);
+  }
+  3% {
+    -webkit-clip-path: polygon(0 3%, 100% 3%, 100% 3%, 0 3%);
+    clip-path: polygon(0 3%, 100% 3%, 100% 3%, 0 3%);
+  }
+  5% {
+    -webkit-clip-path: polygon(0 5%, 100% 5%, 100% 20%, 0 20%);
+    clip-path: polygon(0 5%, 100% 5%, 100% 20%, 0 20%);
+  }
+  7% {
+    -webkit-clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
+    clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
+  }
+  9% {
+    -webkit-clip-path: polygon(0 40%, 100% 40%, 100% 40%, 0 40%);
+    clip-path: polygon(0 40%, 100% 40%, 100% 40%, 0 40%);
+  }
+  11% {
+    -webkit-clip-path: polygon(0 52%, 100% 52%, 100% 59%, 0 59%);
+    clip-path: polygon(0 52%, 100% 52%, 100% 59%, 0 59%);
+  }
+  13% {
+    -webkit-clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
+    clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
+  }
+  15% {
+    -webkit-clip-path: polygon(0 75%, 100% 75%, 100% 75%, 0 75%);
+    clip-path: polygon(0 75%, 100% 75%, 100% 75%, 0 75%);
+  }
+  17% {
+    -webkit-clip-path: polygon(0 65%, 100% 65%, 100% 40%, 0 40%);
+    clip-path: polygon(0 65%, 100% 65%, 100% 40%, 0 40%);
+  }
+  19% {
+    -webkit-clip-path: polygon(0 45%, 100% 45%, 100% 50%, 0 50%);
+    clip-path: polygon(0 45%, 100% 45%, 100% 50%, 0 50%);
+  }
+  20% {
+    -webkit-clip-path: polygon(0 14%, 100% 14%, 100% 33%, 0 33%);
+    clip-path: polygon(0 14%, 100% 14%, 100% 33%, 0 33%);
+  }
+  21.9% {
+    opacity: 1;
+    transform: translate3d(calc(-1 * var(--gap-horizontal)), 0, 0);
+  }
+  22%, 100% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+    -webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+  }
+}
+@keyframes glitch-anim-4 {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, calc(-1 * var(--gap-vertical)), 0) scale3d(-1, -1, 1);
+    -webkit-clip-path: polygon(0 1%, 100% 1%, 100% 3%, 0 3%);
+    clip-path: polygon(0 1%, 100% 1%, 100% 3%, 0 3%);
+  }
+  1.5% {
+    -webkit-clip-path: polygon(0 10%, 100% 10%, 100% 9%, 0 9%);
+    clip-path: polygon(0 10%, 100% 10%, 100% 9%, 0 9%);
+  }
+  2% {
+    -webkit-clip-path: polygon(0 5%, 100% 5%, 100% 6%, 0 6%);
+    clip-path: polygon(0 5%, 100% 5%, 100% 6%, 0 6%);
+  }
+  2.5% {
+    -webkit-clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
+    clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
+  }
+  3% {
+    -webkit-clip-path: polygon(0 10%, 100% 10%, 100% 10%, 0 10%);
+    clip-path: polygon(0 10%, 100% 10%, 100% 10%, 0 10%);
+  }
+  5% {
+    -webkit-clip-path: polygon(0 30%, 100% 30%, 100% 25%, 0 25%);
+    clip-path: polygon(0 30%, 100% 30%, 100% 25%, 0 25%);
+  }
+  5.5% {
+    -webkit-clip-path: polygon(0 15%, 100% 15%, 100% 16%, 0 16%);
+    clip-path: polygon(0 15%, 100% 15%, 100% 16%, 0 16%);
+  }
+  7% {
+    -webkit-clip-path: polygon(0 40%, 100% 40%, 100% 39%, 0 39%);
+    clip-path: polygon(0 40%, 100% 40%, 100% 39%, 0 39%);
+  }
+  8% {
+    -webkit-clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%);
+    clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%);
+  }
+  9% {
+    -webkit-clip-path: polygon(0 60%, 100% 60%, 100% 55%, 0 55%);
+    clip-path: polygon(0 60%, 100% 60%, 100% 55%, 0 55%);
+  }
+  10.5% {
+    -webkit-clip-path: polygon(0 30%, 100% 30%, 100% 31%, 0 31%);
+    clip-path: polygon(0 30%, 100% 30%, 100% 31%, 0 31%);
+  }
+  11% {
+    -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 69%, 0 69%);
+    clip-path: polygon(0 70%, 100% 70%, 100% 69%, 0 69%);
+  }
+  13% {
+    -webkit-clip-path: polygon(0 40%, 100% 40%, 100% 41%, 0 41%);
+    clip-path: polygon(0 40%, 100% 40%, 100% 41%, 0 41%);
+  }
+  14% {
+    -webkit-clip-path: polygon(0 80%, 100% 80%, 100% 75%, 0 75%);
+    clip-path: polygon(0 80%, 100% 80%, 100% 75%, 0 75%);
+  }
+  14.5% {
+    -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 51%, 0 51%);
+    clip-path: polygon(0 50%, 100% 50%, 100% 51%, 0 51%);
+  }
+  15% {
+    -webkit-clip-path: polygon(0 90%, 100% 90%, 100% 90%, 0 90%);
+    clip-path: polygon(0 90%, 100% 90%, 100% 90%, 0 90%);
+  }
+  16% {
+    -webkit-clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
+    clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
+  }
+  18% {
+    -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 99%, 0 99%);
+    clip-path: polygon(0 100%, 100% 100%, 100% 99%, 0 99%);
+  }
+  20% {
+    -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 71%, 0 71%);
+    clip-path: polygon(0 70%, 100% 70%, 100% 71%, 0 71%);
+  }
+  21.9% {
+    opacity: 1;
+    transform: translate3d(0, calc(-1 * var(--gap-vertical)), 0) scale3d(-1, -1, 1);
+  }
+  22%, 100% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+    -webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+  }
+}
+@keyframes rgbText {
+  0% {
+    text-shadow: -1px 1px 8px rgba(255, 255, 255, 0.6), 1px -1px 8px rgba(255, 255, 235, 0.7), 0px 0 1px rgba(251, 0, 231, 0.8), 0 0px 3px rgba(0, 233, 235, 0.8), 0px 0 3px rgba(0, 242, 14, 0.8), 0 0px 3px rgba(244, 45, 0, 0.8), 0px 0 3px rgba(59, 0, 226, 0.8);
+  }
+  25% {
+    text-shadow: -1px 1px 8px rgba(255, 255, 255, 0.6), 1px -1px 8px rgba(255, 255, 235, 0.7), 0px 0 1px rgba(251, 0, 231, 0.8), 0 0px 3px rgba(0, 233, 235, 0.8), 0px 0 3px rgba(0, 242, 14, 0.8), 0 0px 3px rgba(244, 45, 0, 0.8), 0px 0 3px rgba(59, 0, 226, 0.8);
+  }
+  45% {
+    text-shadow: -1px 1px 8px rgba(255, 255, 255, 0.6), 1px -1px 8px rgba(255, 255, 235, 0.7), 5px 0 1px rgba(251, 0, 231, 0.8), 0 5px 1px rgba(0, 233, 235, 0.8), -5px 0 1px rgba(0, 242, 14, 0.8), 0 -5px 1px rgba(244, 45, 0, 0.8), 5px 0 1px rgba(59, 0, 226, 0.8);
+  }
+  50% {
+    text-shadow: -1px 1px 8px rgba(255, 255, 255, 0.6), 1px -1px 8px rgba(255, 255, 235, 0.7), -5px 0 1px rgba(251, 0, 231, 0.8), 0 -5px 1px rgba(0, 233, 235, 0.8), 5px 0 1px rgba(0, 242, 14, 0.8), 0 5px 1px rgba(244, 45, 0, 0.8), -5px 0 1px rgba(59, 0, 226, 0.8);
+  }
+  55% {
+    text-shadow: -1px 1px 8px rgba(255, 255, 255, 0.6), 1px -1px 8px rgba(255, 255, 235, 0.7), 0px 0 3px rgba(251, 0, 231, 0.8), 0 0px 3px rgba(0, 233, 235, 0.8), 0px 0 3px rgba(0, 242, 14, 0.8), 0 0px 3px rgba(244, 45, 0, 0.8), 0px 0 3px rgba(59, 0, 226, 0.8);
+  }
+  90% {
+    text-shadow: -1px 1px 8px rgba(255, 255, 255, 0.6), 1px -1px 8px rgba(255, 255, 235, 0.7), -5px 0 1px rgba(251, 0, 231, 0.8), 0 5px 1px rgba(0, 233, 235, 0.8), 5px 0 1px rgba(0, 242, 14, 0.8), 0 -5px 1px rgba(244, 45, 0, 0.8), 5px 0 1px rgba(59, 0, 226, 0.8);
+  }
+  100% {
+    text-shadow: -1px 1px 8px rgba(255, 255, 255, 0.6), 1px -1px 8px rgba(255, 255, 235, 0.7), 5px 0 1px rgba(251, 0, 231, 0.8), 0 -5px 1px rgba(0, 233, 235, 0.8), -5px 0 1px rgba(0, 242, 14, 0.8), 0 5px 1px rgba(244, 45, 0, 0.8), -5px 0 1px rgba(59, 0, 226, 0.8);
+  }
+}
