@@ -1,0 +1,58 @@
+@import "compass/css3";
+
+.glitch {
+  position: relative;
+  display: inline-block;
+ 
+  .glitch-effect {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    visibility: hidden;
+    
+    span {
+      position: absolute;
+      width: 100%;
+    }
+    
+    > span {
+      overflow: hidden;
+      height: 2px;
+    }
+  }
+  
+  &:hover {
+    .glitch-effect {
+      visibility: visible;
+    }
+    .glitch-original {
+      opacity: 0;
+    }
+  }
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif; 
+  background: #333;
+  color: #DDD;
+}
+a {
+  color: #FFF;
+}
+* {
+  @include box-sizing(border-box);
+}
+h1 {
+  font-size: 45px;
+  margin: 0 0 20px;
+}
+.wrapper {
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 20px 20px;
+  
+  img {
+    max-width: 100%;
+  }
+}
